@@ -9,7 +9,7 @@ const Test1 = () => {
             fetch("https://jsonplaceholder.typicode.com/posts").then((res) => res.json()),
         staleTime: 2000,
         // refetchInterval: 4000,
-    });
+    });[]
     const { mutate, isPending, isError, isSuccess } = useMutation({
         mutationFn: (newPost) => fetch("https://jsonplaceholder.typicode.com/posts",
             {
@@ -39,10 +39,10 @@ const Test1 = () => {
                 "title": "Welcome to react query",
                 "body": "react query body"
             })}>Add Post</button>
-            {data.map(todo => (
-                <div key={todo.id}>
-                    <h5>Todo ID: {todo.id}</h5>
-                    <h5>Title: {todo.title}</h5>
+            {data.map(posts => (
+                <div key={posts.id}>
+                    <h5>Posts ID: {posts.id}</h5>
+                    <h5>Title: {posts.title}</h5>
                 </div>
             ))}
         </div>

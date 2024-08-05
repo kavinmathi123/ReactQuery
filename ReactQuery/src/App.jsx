@@ -8,11 +8,17 @@ import Test2 from './Test2'
 import Test3 from './Test3'
 
 function App() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 40000, gcTime: 10 * (60 * 1000)
+      },
+    },
+  });
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Test1></Test1>
+        <Test1 />
         {/* <Test2></Test2> */}
         {/* <Test3 /> */}
       </QueryClientProvider>
